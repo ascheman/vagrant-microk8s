@@ -1,1 +1,4 @@
 .vagrant
+
+cache/apt-archives/*.deb
+cache/apt-archives/lock
