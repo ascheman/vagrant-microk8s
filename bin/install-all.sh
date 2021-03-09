@@ -9,15 +9,6 @@ test ! -x "$sudo" && sudo=
 test $(expr `stat -c %Y /var/lib/apt/periodic/update-success-stamp` + 84400) -lt $(date +%s) && $sudo apt-get update
 test $(expr `stat -c %Y /var/lib/apt/extended_states` + 84400) -lt $(date +%s) && $sudo apt-get -yy upgrade
 
-#for snapdir in snaps cache; do
-#    if ! test -d /var/lib/snapd/$snapdir; then
-#        $sudo mkdir /var/lib/snapd/$snapdir
-#    fi
-#    if ! $sudo mount | grep -q snapd/cache; then
-#        $sudo mount /var/cache/snapd/$snapdir /var/lib/snapd/$snapdir
-#    fi
-#done
-
 $sudo apt-get install libconfig-inifiles-perl
 
 $sudo snap install microk8s --classic
