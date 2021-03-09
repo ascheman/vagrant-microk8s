@@ -19,6 +19,10 @@ $sudo microk8s enable ingress helm3 storage dns
 
 # $sudo echo 'k8s.galinews.intra.aschemann.net' >> /var/snap/
 
-$sudo ln -sfn /vagrant/bin/* /usr/local/bin
+if test -d /vagrant; then
+  $sudo ln -sfn /vagrant/bin/* /usr/local/bin
+else
+  $sudo cp -p bin/* /usr/local/bin
+fi
 
 
